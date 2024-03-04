@@ -257,11 +257,12 @@ krew_root_dir: "/usr/local/krew"
 kube_vip_enabled: true
 kube_vip_arp_enabled: true
 kube_vip_controlplane_enabled: true
-kube_vip_address: 192.168.116.100
+kube_vip_address: 10.233.64.100
+#kube_vip_address: 192.168.116.100
 loadbalancer_apiserver:
   address: "{{ kube_vip_address }}"
   port: 6443
 #kube_vip_interface: eth0
 kube_vip_services_enabled: false
 
-kube_vip_lb_enable: true
+#kube_vip_lb_enable: true
