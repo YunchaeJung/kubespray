@@ -1,0 +1,9 @@
+- hosts: kube_control_plane[0]
+  gather_facts: no
+  roles:
+    - name: helm-apps
+      releases:
+        - name: nfs-provisioner
+          namespace: kube-system
+          chart_ref: ../helm_chart/nfs-subdir-external-provisioner
+          wait_timeout: "10m" # override the same option in `release_common_opts`
