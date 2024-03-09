@@ -139,4 +139,5 @@ unsafe_show_logs: false
 allow_unsupported_distribution_setup: false
 
 #need helm charts
-download_run_once: False
+download_run_once: false
+download_force_cache: true
