@@ -8,8 +8,8 @@
         - name: nfs-subdir-external-provisioner
           namespace: kube-system
           chart_ref: ../helm_chart/nfs-subdir-external-provisioner
-      repositories: "{{ repos }}"
+      repositories:
         - name: nfs-subdir-external-provisioner
           url: "https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner"
-      release_common_opts: "{{ helm_params }}"
+      release_common_opts:
         wait_timeout: "5m"
