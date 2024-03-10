@@ -93,13 +93,13 @@
     - { role: kubespray-defaults }
     - { role: kubernetes/preinstall, when: "dns_mode != 'none' and resolvconf_mode == 'host_resolvconf'", tags: resolvconf, dns_late: true }
 
-- name: install helm charts
-  hosts: kube_control_plane[0]
-  gather_facts: no
-  roles:
-    - name: helm-apps
-      releases:
-        - name: nfs-subdir-external-provisioner
-          namespace: kube-system
-          chart_ref: ../helm_chart/nfs-subdir-external-provisioner
-          wait_timeout: "10m" # override the same option in `release_common_opts`
+#- name: install helm charts
+#  hosts: kube_control_plane[0]
+#  gather_facts: no
+#  roles:
+#    - name: helm-apps
+#      releases:
+#        - name: nfs-subdir-external-provisioner
+#          namespace: kube-system
+#          chart_ref: ../helm_chart/nfs-subdir-external-provisioner
+#          wait_timeout: "10m" # override the same option in `release_common_opts`
