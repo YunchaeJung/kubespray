@@ -1,5 +1,3 @@
 ---
 allow_duplicates: true
-#helm install 을 위한 설정
-download_run_once: true
 
