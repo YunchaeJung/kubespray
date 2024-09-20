@@ -2,7 +2,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: nfs-provisioner-clusterrole
+  name: "nfs-provisioner-clusterrole"
   namespace: {{ nfs_provisioner_namespace }}
 rules:
   - apiGroups: [""]

@@ -2,7 +2,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: nfs-provisioner
+  name: "nfs-provisioner-role"
   namespace: {{ nfs_provisioner_namespace }}
 rules:
   - apiGroups: [""]
