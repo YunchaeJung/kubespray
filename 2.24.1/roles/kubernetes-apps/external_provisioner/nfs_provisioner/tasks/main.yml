@@ -1,0 +1,43 @@
+---
+
+- name: NFS Provisioner | Create addon dir
+  file:
+    path: "{{ kube_config_dir }}/addons/nfs_provisioner"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  when:
+    - inventory_hostname == groups['kube_control_plane'][0]
+
+- name: NFS Provisioner | Templates list
+  set_fact:
+    nfs_provisioner_templates:
+      - { name: 00-namespace, file: 00-namespace.yml, type: ns }
+      - { name: sa-nfs-provisioner, file: sa-nfs-provisioner.yml, type: sa }
+      - { name: clusterrole-nfs-provisioner, file: clusterrole-nfs-provisioner.yml, type: clusterrole }
+      - { name: clusterrolebinding-nfs-provisioner, file: clusterrolebinding-nfs-provisioner.yml, type: clusterrolebinding }
+      - { name: role-nfs-provisioner, file: role-nfs-provisioner.yml, type: role }
+      - { name: rolebinding-nfs-provisioner, file: rolebinding-nfs-provisioner.yml, type: rolebinding }
+      - { name: deploy-nfs-provisioner, file: deploy-nfs-provisioner.yml, type: deploy }
+      - { name: sc-nfs-provisioner, file: sc-nfs-provisioner.yml, type: sc }
+
+- name: NFS Provisioner | Create manifests
+  template:
+    src: "{{ item.file }}.j2"
+    dest: "{{ kube_config_dir }}/addons/nfs_provisioner/{{ item.file }}"
+    mode: 0644
+  with_items: "{{ nfs_provisioner_templates }}"
+  register: nfs_provisioner_manifests
+  when: inventory_hostname == groups['kube_control_plane'][0]
+
+- name: NFS Provisioner | Apply manifests
+  kube:
+    name: "{{ item.item.name }}"
+    namespace: "{{ nfs_provisioner_namespace }}"
+    kubectl: "{{ bin_dir }}/kubectl"
+    resource: "{{ item.item.type }}"
+    filename: "{{ kube_config_dir }}/addons/nfs_provisioner/{{ item.item.file }}"
+    state: "latest"
+  with_items: "{{ nfs_provisioner_manifests.results }}"
+  when: inventory_hostname == groups['kube_control_plane'][0]

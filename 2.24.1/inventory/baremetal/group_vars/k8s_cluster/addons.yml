@@ -77,6 +77,14 @@ cephfs_provisioner_enabled: false
 # cephfs_provisioner_claim_root: /volumes
 # cephfs_provisioner_deterministic_names: true
 
+#NFS provisioner deployment
+nfs_provisioner_enabled: true
+nfs_provisioner_namespace: "cloud-mgmt"
+nfs_server_address: "172.30.1.84"
+nfs_server_path: "/volume1/nfs-storage"
+nfs_provisioner_nodeselector:
+
+
 # RBD provisioner deployment
 rbd_provisioner_enabled: false
 # rbd_provisioner_namespace: rbd-provisioner
