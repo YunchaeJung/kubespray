@@ -19,9 +19,9 @@ spec:
         app: nfs-provisioner
     spec:
       serviceAccount: {{ nfs_provisioner_sa }}
-	  serviceAccountName: {{ nfs_provisioner_sa }}
-	  dnsPolicy: ClusterFirst
-	  restartPolicy: Always
+      serviceAccountName: {{ nfs_provisioner_sa }}
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
       containers:
         - name: nfs-provisioner
           image: "registry.k8s.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2"
