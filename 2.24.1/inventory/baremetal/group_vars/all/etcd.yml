@@ -9,8 +9,9 @@ etcd_data_dir: /var/lib/etcd
 ## If this is not set, container manager will be inherited from the Kubespray defaults
 ## and not from k8s_cluster/k8s-cluster.yml, which might not be what you want.
 ## Also this makes possible to use different container manager for etcd nodes.
-# container_manager: containerd
-
+# container_manager: containerd #original
+container_manager: containerd
 ## Settings for etcd deployment type
 # Set this to docker if you are using container_manager: docker
-etcd_deployment_type: host
+#etcd_deployment_type: host #original
+etcd_deployment_type: docker
