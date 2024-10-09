@@ -22,11 +22,19 @@ ubuntu_repo: "http://192.168.116.136:8080"
 # docker_image_repo: "{{ registry_host }}"
 # quay_image_repo: "{{ registry_host }}"
 
-kube_image_repo: "{{ registry_host }}"
-gcr_image_repo: "{{ registry_host }}"
-github_image_repo: "{{ registry_host }}"
-docker_image_repo: "{{ registry_host }}"
-quay_image_repo: "{{ registry_host }}"
+
+# - kube_image_repo: "registry.k8s.io"
+# - gcr_image_repo: "gcr.io"
+# - ghcr_image_repo: "ghcr.io"
+# - docker_image_repo: "docker.io"
+# - quay_image_repo: "quay.io"
+
+
+kube_image_repo: "{{ registry_host }}/registry.k8s.io"
+gcr_image_repo: "{{ registry_host }}/gcr.io"
+github_image_repo: "{{ registry_host }}/ghcr.io"
+docker_image_repo: "{{ registry_host }}/docker.io"
+quay_image_repo: "{{ registry_host }}/quay.io"
 
 ## Kubernetes components
 # kubeadm_download_url: "{{ files_repo }}/dl.k8s.io/release/{{ kubeadm_version }}/bin/linux/{{ image_arch }}/kubeadm"
