@@ -41,8 +41,12 @@ dependencies:
     when: kube_network_plugin == 'custom_cni'
     tags:
       - custom_cni
-
+#2024/10/11 조건문 없으나 k8s-cluster.yml 안에 변수 있어서 boolean 조건문으로 변경해줌
   - role: network_plugin/multus
-    when: kube_network_plugin_multus
+    when: kube_network_plugin_multus | bool
     tags:
       - multus
+#  - role: network_plugin/multus
+#    when: kube_network_plugin_multus
+#    tags:
+#      - multus
