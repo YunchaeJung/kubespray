@@ -30,7 +30,7 @@ dependencies:
 #    tags:
 #      - multus
       
-  - role: kubernetes-apps/network_plugin/multus
-    when: kube_network_plugin_multus | bool
-    tags:
-      - multus
+#  - role: kubernetes-apps/network_plugin/multus
+#    when: kube_network_plugin_multus | bool
+#    tags:
+#      - multus
