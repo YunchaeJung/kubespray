@@ -4,7 +4,7 @@
 IMAGE_LIST="temp/images.list"
 
 # Private Registry 주소
-PRIVATE_REGISTRY="192.168.116.136:5000"
+PRIVATE_REGISTRY="192.168.116.138:5000"
 
 # 이미지 리스트 파일을 읽으면서 라인별로 처리
 while IFS= read -r image; do
