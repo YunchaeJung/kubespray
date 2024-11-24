@@ -3,7 +3,7 @@ nfs_provisioner_namespace: "cloud-mgmt"
 nfs_provisioner_sa: "nfs-provisioner"
 nfs_provisioner_nodeselector:
 nfs_provisioner_tolerations:
-nfs_provisioner_name: "cluster.local/nfs_external_provisioner"
+nfs_provisioner_name: "cluster.local/nfs-external-provisioner"
 nfs_storageclass_delete_name: "sc-nfs-app"
 nfs_storageclass_retain_name: "sc-nfs-app-retain"
 
