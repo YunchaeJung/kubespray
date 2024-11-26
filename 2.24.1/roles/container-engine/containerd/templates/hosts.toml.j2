@@ -1,5 +1,6 @@
-#server = "https://{{ item.prefix }}"
-server = "http://{{ item.prefix }}"
+server = "https://{{ item.prefix }}"
+#offline 시
+#server = "http://{{ item.prefix }}"
 {% for mirror in item.mirrors %}
 [host."{{ mirror.host }}"]
   capabilities = ["{{ ([ mirror.capabilities ] | flatten ) | join('","') }}"]
